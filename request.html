@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Sweet Request · MoonMood 🌙</title>
+  <meta name="description" content="Someone special has sent you a craving request on MoonMood!">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><text y='32' font-size='32'>🌙</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="share">
+
+  <div id="nav-placeholder"></div>
+  <div id="overlays-placeholder"></div>
+
+  <main class="page-wrapper share-page">
+    <div class="share-card">
+
+      <div class="share-hearts">💕 🌸 💕</div>
+
+      <p class="share-from">💌 A sweet request from</p>
+      <h2 style="font-family:'Playfair Display',serif;color:var(--pink-deep);margin-bottom:0.4rem" id="share-from-name">Your Special Someone</h2>
+
+      <span class="share-emoji-big" id="share-item-emoji">🍫</span>
+
+      <p style="font-size:15px;color:var(--text-muted);margin-bottom:0.5rem">She is craving</p>
+      <div class="share-craving" id="share-item-name">Dark Chocolate</div>
+
+      <p class="share-msg">She opened MoonMood and thought of you 💕<br>This is her sweet little way of asking.</p>
+
+      <div style="display:flex;flex-direction:column;gap:12px;width:100%">
+        <button class="btn-primary" style="width:100%" onclick="handleAccept()">
+          I'll Get It For Her! 💕
+        </button>
+        <button class="btn-secondary" style="width:100%" onclick="window.location.href='index.html'">
+          Open MoonMood 🌙
+        </button>
+      </div>
+
+      <p style="margin-top:1.5rem;font-size:13px;color:var(--text-light);line-height:1.7">
+        MoonMood is a free comfort space for couples. 🌸<br>
+        <a href="index.html" style="color:var(--pink-deep);font-weight:600">Learn more →</a>
+      </p>
+
+    </div>
+  </main>
+
+  <script src="js/components.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    function handleAccept() {
+      const item = document.getElementById('share-item-name').textContent;
+      document.querySelector('.share-card').innerHTML = `
+        <div style="font-size:80px;animation:hugPulse 1.5s ease-in-out infinite;margin-bottom:1.5rem">🎉</div>
+        <h2 style="font-family:'Playfair Display',serif;color:var(--text);margin-bottom:1rem">You're amazing!</h2>
+        <p style="color:var(--text-muted);font-size:16px;line-height:1.7;margin-bottom:2rem">
+          She's going to love that you said yes! 💕<br>
+          Go surprise her with <strong style="color:var(--pink-deep)">${item}</strong>.
+        </p>
+        <a href="index.html" class="btn-primary" style="display:inline-flex">Open MoonMood 🌙</a>
+        <p style="margin-top:1.5rem;font-size:13px;color:var(--text-light)">Because love should care about every mood. 🌸</p>
+      `;
+    }
+
+    // Parse URL params
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const item = params.get('item') || params.get('craving') || 'Dark Chocolate';
+      const from = params.get('from') || params.get('name') || 'Your Special Someone';
+
+      // Also handle path: /request/dark-chocolate
+      const path = window.location.pathname;
+      const pathMatch = path.match(/\/request\/([^/?]+)/);
+      if(pathMatch) {
+        const slug = pathMatch[1];
+        const formatted = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+        document.getElementById('share-item-name').textContent = formatted;
+      } else {
+        document.getElementById('share-item-name').textContent = item;
+      }
+      document.getElementById('share-from-name').textContent = from;
+
+      const emojiMap = {
+        'Dairy Milk':'🍫','KitKat':'🍬','Ferrero Rocher':'🫐','Munch':'🍫',
+        'Candies':'🍭','Brownies':'🍩','Dark Chocolate':'🍫','Bouquet':'💐',
+        'Birthday Cake':'🎂','Bubble Tea':'🧋','Ice Cream':'🍦','Love Letter':'💌',
+        'Hug Request':'🤗','Virtual Bouquet':'💐','Love Note':'💌'
+      };
+      const itemName = document.getElementById('share-item-name').textContent;
+      const emoji = emojiMap[itemName] || '🎁';
+      document.getElementById('share-item-emoji').textContent = emoji;
+      document.title = `${from} is craving ${itemName} · MoonMood 🌙`;
+    });
+  </script>
+</body>
+</html>

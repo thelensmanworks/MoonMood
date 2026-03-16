@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Companion · MoonMood 🌙</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><text y='32' font-size='32'>🌙</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="companion">
+
+  <div id="nav-placeholder"></div>
+  <div id="overlays-placeholder"></div>
+
+  <main class="page-wrapper companion-page">
+    <div class="companion-wrap">
+
+      <!-- Companion Header -->
+      <div class="companion-header">
+        <div class="companion-avatar" id="comp-avatar">🐼</div>
+        <div class="companion-info">
+          <h3 id="comp-name">Panda</h3>
+          <p id="comp-trait">Calm and gentle · Always here for you 🌸</p>
+        </div>
+        <div class="companion-status">
+          <div class="status-dot"></div>
+          <span class="status-text">Online</span>
+        </div>
+      </div>
+
+      <!-- Chat Box -->
+      <div class="chat-box" id="chat-box"></div>
+
+      <!-- Quick Chips -->
+      <div class="quick-chips">
+        <button class="chip" onclick="quickMsg('I feel sad 😢')">😢 I feel sad</button>
+        <button class="chip" onclick="quickMsg('I am so tired 😴')">😴 I am tired</button>
+        <button class="chip" onclick="quickMsg('I want a hug 🤗')">🤗 I want a hug</button>
+        <button class="chip" onclick="quickMsg('I want chocolate 🍫')">🍫 I want chocolate</button>
+        <button class="chip" onclick="quickMsg('I feel irritated 😤')">😤 I feel irritated</button>
+        <button class="chip" onclick="quickMsg('I need some love 🥺')">🥺 I need love</button>
+      </div>
+
+      <!-- Chat Input -->
+      <div class="chat-input-row">
+        <input class="chat-input" id="chat-input" type="text" placeholder="Tell your companion how you feel...">
+        <button class="chat-send" onclick="sendChat()" title="Send">➤</button>
+      </div>
+
+      <!-- Quick Actions -->
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:1rem">
+        <button class="btn-soft" onclick="openHug()">🤗 Virtual Hug</button>
+        <button class="btn-soft" onclick="openBreathing()">🌬 Breathe</button>
+        <a href="shop.html" class="btn-soft">🍫 Cravings</a>
+        <a href="games.html" class="btn-soft">🎮 Games</a>
+        <button class="btn-soft" onclick="generateLoveMsg()">💌 Love Message</button>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/components.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

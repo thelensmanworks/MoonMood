@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Pet · MoonMood 🌙</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><text y='32' font-size='32'>🌙</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="pet">
+
+  <div id="nav-placeholder"></div>
+  <div id="overlays-placeholder"></div>
+
+  <main class="page-wrapper pet-page">
+    <div class="pet-container">
+
+      <h2 class="section-title reveal">My Virtual Pet 🐾</h2>
+      <p class="section-sub reveal" style="margin-bottom:1.5rem">Feed and care for your companion every day to watch them grow!</p>
+
+      <!-- Pet Main Card -->
+      <div class="pet-main-card reveal">
+
+        <!-- Stage Bar -->
+        <div class="pet-stage-bar">
+          <div class="stage-pip active">🥚 Baby</div>
+          <div class="stage-pip future">🌱 Kid</div>
+          <div class="stage-pip future">🌿 Teen</div>
+          <div class="stage-pip future">🌸 Adult</div>
+        </div>
+
+        <!-- Pet Display -->
+        <span class="pet-emoji" id="pet-emoji">🐼</span>
+        <div class="pet-name-display" id="pet-name-display">Mochi the Panda</div>
+        <div class="pet-stage-tag">✨ Baby Stage · Level 1 · 24 days old</div>
+
+        <!-- Stats -->
+        <div class="pet-stats">
+          <div class="pet-stat">
+            <div class="stat-label">Happiness</div>
+            <div class="stat-val stat-happiness" id="stat-happiness">87%</div>
+          </div>
+          <div class="pet-stat">
+            <div class="stat-label">Hunger</div>
+            <div class="stat-val stat-hunger" id="stat-hunger">62%</div>
+          </div>
+          <div class="pet-stat">
+            <div class="stat-label">Energy</div>
+            <div class="stat-val stat-energy" id="stat-energy">95%</div>
+          </div>
+        </div>
+
+        <!-- XP Bar -->
+        <div class="xp-section">
+          <div class="xp-label-row">
+            <span class="xp-label-text">Experience Points</span>
+            <span class="xp-label-num" id="xp-num">24 / 100</span>
+          </div>
+          <div class="xp-bar">
+            <div class="xp-fill" id="xp-fill" style="width:24%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feed Card -->
+      <div class="feed-card reveal">
+        <div class="feed-title">🍽 Feed Your Pet</div>
+        <div class="feed-grid">
+          <div class="feed-item" onclick="feedPet('🍓','Berries',8)">
+            <span class="fi-em">🍓</span>
+            <span>Berries<br><small style="color:var(--mint-deep)">+8 XP</small></span>
+          </div>
+          <div class="feed-item" onclick="feedPet('🍪','Cookies',12)">
+            <span class="fi-em">🍪</span>
+            <span>Cookies<br><small style="color:var(--mint-deep)">+12 XP</small></span>
+          </div>
+          <div class="feed-item" onclick="feedPet('🍫','Chocolate',20)">
+            <span class="fi-em">🍫</span>
+            <span>Chocolate<br><small style="color:var(--mint-deep)">+20 XP</small></span>
+          </div>
+          <div class="feed-item" onclick="feedPet('🥕','Carrots',5)">
+            <span class="fi-em">🥕</span>
+            <span>Carrots<br><small style="color:var(--mint-deep)">+5 XP</small></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Growth Stages Info -->
+      <div style="margin-top:1.2rem;background:white;border-radius:var(--radius);padding:1.8rem;box-shadow:var(--shadow-sm)">
+        <h4 style="font-family:'Playfair Display',serif;font-size:18px;color:var(--text);margin-bottom:1.2rem">Growth Stages 🌱</h4>
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
+          <div style="background:var(--pink-light);border-radius:14px;padding:14px;text-align:center">
+            <div style="font-size:24px;margin-bottom:4px">🥚</div>
+            <div style="font-size:13px;font-weight:600;color:var(--pink-deep)">Baby</div>
+            <div style="font-size:12px;color:var(--text-muted)">0–100 XP</div>
+          </div>
+          <div style="background:var(--mint-light);border-radius:14px;padding:14px;text-align:center">
+            <div style="font-size:24px;margin-bottom:4px">🌱</div>
+            <div style="font-size:13px;font-weight:600;color:var(--mint-deep)">Kid</div>
+            <div style="font-size:12px;color:var(--text-muted)">100–300 XP</div>
+          </div>
+          <div style="background:var(--lavender-light);border-radius:14px;padding:14px;text-align:center">
+            <div style="font-size:24px;margin-bottom:4px">🌿</div>
+            <div style="font-size:13px;font-weight:600;color:var(--lavender-deep)">Teen</div>
+            <div style="font-size:12px;color:var(--text-muted)">300–700 XP</div>
+          </div>
+          <div style="background:var(--peach-light);border-radius:14px;padding:14px;text-align:center">
+            <div style="font-size:24px;margin-bottom:4px">🌸</div>
+            <div style="font-size:13px;font-weight:600;color:var(--peach-deep)">Adult</div>
+            <div style="font-size:12px;color:var(--text-muted)">700+ XP</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/components.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

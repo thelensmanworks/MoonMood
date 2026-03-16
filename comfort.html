@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comfort Tools · MoonMood 🌙</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><text y='32' font-size='32'>🌙</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="comfort">
+
+  <div id="nav-placeholder"></div>
+  <div id="overlays-placeholder"></div>
+
+  <main class="page-wrapper comfort-page">
+    <div class="comfort-container">
+
+      <h2 class="section-title reveal">Comfort Tools 💕</h2>
+      <p class="section-sub reveal" style="margin-bottom:2rem">Quick comfort, always within reach. One tap away.</p>
+
+      <!-- Quick Tools Grid -->
+      <div class="comfort-tools-grid reveal">
+        <button class="comfort-btn cb-pink" onclick="openHug()">
+          <span class="cb-icon">🤗</span>
+          <h4>Virtual Hug</h4>
+          <p>Wrap yourself in a warm digital embrace with floating hearts</p>
+        </button>
+        <button class="comfort-btn cb-lavender" onclick="openBreathing()">
+          <span class="cb-icon">🌬</span>
+          <h4>Breathing Exercise</h4>
+          <p>Follow the gentle circle. Inhale, hold, exhale, rest.</p>
+        </button>
+        <button class="comfort-btn cb-peach" onclick="window.location.href='shop.html'">
+          <span class="cb-icon">🍫</span>
+          <h4>Send Craving</h4>
+          <p>Request your favourite treat from your partner instantly</p>
+        </button>
+        <button class="comfort-btn cb-mint" onclick="generateLoveMsg()">
+          <span class="cb-icon">💌</span>
+          <h4>Love Message</h4>
+          <p>Generate a sweet personalised message to brighten your day</p>
+        </button>
+      </div>
+
+      <!-- Relaxation Sounds -->
+      <div class="relax-card reveal">
+        <h3>🎧 Relaxation Sounds</h3>
+        <div class="track-list">
+          <div class="track" id="t-rain" onclick="toggleTrack('t-rain')">
+            <div class="track-icon">🌧</div>
+            <div class="track-info">
+              <h5>Rain & Thunder</h5>
+              <p>Cozy rainy day ambiance · Perfect for winding down</p>
+            </div>
+            <button class="track-play-btn">▶</button>
+          </div>
+          <div class="track" id="t-lofi" onclick="toggleTrack('t-lofi')">
+            <div class="track-icon">🎵</div>
+            <div class="track-info">
+              <h5>Lo-Fi Chill</h5>
+              <p>Soft beats to ease the mind · Focus and relax</p>
+            </div>
+            <button class="track-play-btn">▶</button>
+          </div>
+          <div class="track" id="t-piano" onclick="toggleTrack('t-piano')">
+            <div class="track-icon">🎹</div>
+            <div class="track-info">
+              <h5>Soft Piano</h5>
+              <p>Gentle melodies for inner peace · Soothing and warm</p>
+            </div>
+            <button class="track-play-btn">▶</button>
+          </div>
+          <div class="track" id="t-ocean" onclick="toggleTrack('t-ocean')">
+            <div class="track-icon">🌊</div>
+            <div class="track-info">
+              <h5>Ocean Waves</h5>
+              <p>Calm seaside sounds · Let your thoughts drift away</p>
+            </div>
+            <button class="track-play-btn">▶</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Affirmations -->
+      <div style="margin-top:1.5rem;background:white;border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow-sm);text-align:center" class="reveal">
+        <p style="font-size:28px;margin-bottom:1rem">✨</p>
+        <h3 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--text);margin-bottom:0.8rem">Daily Affirmation</h3>
+        <p id="affirmation-text" style="font-family:'Playfair Display',serif;font-size:18px;color:var(--pink-deep);line-height:1.6;font-style:italic;max-width:400px;margin:0 auto 1.5rem">
+          "You are enough, exactly as you are right now."
+        </p>
+        <button class="btn-soft" onclick="newAffirmation()">New Affirmation 🌸</button>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/components.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    const AFFIRMATIONS = [
+      '"You are enough, exactly as you are right now."',
+      '"Your feelings are valid. Every single one of them."',
+      '"You are loved in all your moods. Every shade of you."',
+      '"Rest is not weakness — it is an act of self-love."',
+      '"You are allowed to take up space. You matter."',
+      '"Today is hard. But you are harder. You\'ve got this."',
+      '"You deserve softness. You deserve gentleness. You deserve care."',
+      '"Being sensitive is your superpower, not your flaw."',
+      '"You are worthy of all the love you give to others."',
+      '"Your heart is beautiful. Your feelings are real. You are real."',
+    ];
+    function newAffirmation() {
+      const el = document.getElementById('affirmation-text');
+      const current = el.textContent;
+      let next;
+      do { next = AFFIRMATIONS[Math.floor(Math.random() * AFFIRMATIONS.length)]; }
+      while(next === current);
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(8px)';
+      setTimeout(() => {
+        el.textContent = next;
+        el.style.transition = 'all 0.4s ease';
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      }, 200);
+    }
+  </script>
+</body>
+</html>

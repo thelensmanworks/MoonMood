@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Games · MoonMood 🌙</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><text y='32' font-size='32'>🌙</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="games">
+
+  <div id="nav-placeholder"></div>
+  <div id="overlays-placeholder"></div>
+
+  <!-- Game Overlay -->
+  <div class="game-overlay" id="game-overlay">
+    <button class="game-close" onclick="closeGame()">✕</button>
+    <div class="game-title">Catch the Hearts! ❤️</div>
+    <div class="game-subtitle">Tap every heart before it floats away!</div>
+    <div class="game-hud">
+      <div class="hud-box">
+        <div class="hud-label">Score</div>
+        <span id="g-score">0</span>
+      </div>
+      <div class="hud-box">
+        <div class="hud-label">Time</div>
+        <span id="g-time">30</span>s
+      </div>
+    </div>
+    <div id="game-canvas"></div>
+  </div>
+
+  <main class="page-wrapper games-page">
+    <div class="games-container">
+      <h2 class="section-title reveal">Dopamine Mini Games 🎮</h2>
+      <p class="section-sub reveal">Short, sweet, and designed to lift your mood. 30–60 seconds each!</p>
+
+      <div class="games-grid">
+
+        <div class="game-card reveal" onclick="startGame()">
+          <span class="game-icon">❤️</span>
+          <h4>Catch the Hearts</h4>
+          <p>Tap the floating hearts before they escape. A joyful little rush!</p>
+          <span class="game-tag tag-pink">⏱ 30 sec · LIVE</span>
+        </div>
+
+        <div class="game-card reveal" onclick="showToast('🍪 Cookie Catch coming soon! 💕')">
+          <span class="game-icon">🍪</span>
+          <h4>Cookie Catch</h4>
+          <p>Catch falling cookies in your basket. Sweet points await!</p>
+          <span class="game-tag tag-peach">⏱ 45 sec · Soon</span>
+        </div>
+
+        <div class="game-card reveal" onclick="showToast('🌸 Flower Garden coming soon! 💕')">
+          <span class="game-icon">🌸</span>
+          <h4>Flower Garden</h4>
+          <p>Tap the right spots to grow a beautiful pastel flower garden.</p>
+          <span class="game-tag tag-mint">⏱ 60 sec · Soon</span>
+        </div>
+
+        <div class="game-card reveal" onclick="showToast('🤗 Hug Meter coming soon! 💕')">
+          <span class="game-icon">🤗</span>
+          <h4>Hug Meter</h4>
+          <p>Fill the love meter by spreading as much warmth as you can!</p>
+          <span class="game-tag tag-pink">⏱ 30 sec · Soon</span>
+        </div>
+
+        <div class="game-card reveal" onclick="showToast('🎨 Mood Coloring coming soon! 💕')">
+          <span class="game-icon">🎨</span>
+          <h4>Mood Coloring</h4>
+          <p>Paint a calming mandala with your favourite pastel colours.</p>
+          <span class="game-tag tag-lavender">⏱ Free · Soon</span>
+        </div>
+
+        <div class="game-card reveal" onclick="showToast('🧩 Love Puzzle coming soon! 💕')">
+          <span class="game-icon">🧩</span>
+          <h4>Love Puzzle</h4>
+          <p>Piece together a sweet illustrated love scene puzzle.</p>
+          <span class="game-tag tag-mint">⏱ 60 sec · Soon</span>
+        </div>
+
+      </div>
+
+      <!-- High score display -->
+      <div style="margin-top:2.5rem;background:white;border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow-sm);text-align:center">
+        <p style="font-size:28px;margin-bottom:0.8rem">🏆</p>
+        <h3 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--text);margin-bottom:0.5rem">Your High Score</h3>
+        <p style="font-size:40px;font-weight:700;color:var(--pink-deep);margin:0.5rem 0" id="high-score-display">—</p>
+        <p style="color:var(--text-muted);font-size:14px">Hearts caught in Catch the Hearts</p>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/components.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // High score tracking
+    const hs = localStorage.getItem('mm_highscore');
+    document.getElementById('high-score-display').textContent = hs ? hs + ' ❤️' : '—';
+
+    const origClose = window.closeGame;
+    window.closeGame = function() {
+      const score = MM.gameState.score;
+      const best = parseInt(localStorage.getItem('mm_highscore') || '0');
+      if(score > best) {
+        localStorage.setItem('mm_highscore', score);
+        document.getElementById('high-score-display').textContent = score + ' ❤️';
+      }
+      if(origClose) origClose();
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Setup · MoonMood 🌙</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><text y='32' font-size='32'>🌙</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="setup">
+
+  <div id="nav-placeholder"></div>
+  <div id="overlays-placeholder"></div>
+
+  <main class="page-wrapper setup-page">
+    <div class="setup-card">
+      <div class="setup-header">
+        <span class="icon">🌸</span>
+        <h2>Welcome to MoonMood</h2>
+        <p>Let's set up your comfort space together. Takes 30 seconds! 💕</p>
+      </div>
+
+      <div class="setup-progress">
+        <div class="progress-dot active"></div>
+        <div class="progress-dot active"></div>
+        <div class="progress-dot"></div>
+      </div>
+
+      <div class="form-group">
+        <label>Your Name</label>
+        <input id="user-name" type="text" placeholder="e.g. Priya, Ayesha, Sofia, Emma...">
+      </div>
+
+      <div class="form-group">
+        <label>Your Nickname 💕</label>
+        <input id="user-nick" type="text" placeholder="e.g. Moon Baby, Starlight, Babe...">
+      </div>
+
+      <div class="form-group">
+        <label>Partner's Name</label>
+        <input id="partner-name" type="text" placeholder="e.g. Aryan, James, Kai, Lucas...">
+      </div>
+
+      <div class="form-group">
+        <label>Choose Your Companion 🐾</label>
+        <div class="animal-grid">
+          <div class="animal-opt selected" data-emoji="🐼" data-name="Panda" onclick="selectAnimal(this)">
+            <span class="emoji">🐼</span>
+            <span class="aname">Panda</span>
+          </div>
+          <div class="animal-opt" data-emoji="🐰" data-name="Bunny" onclick="selectAnimal(this)">
+            <span class="emoji">🐰</span>
+            <span class="aname">Bunny</span>
+          </div>
+          <div class="animal-opt" data-emoji="🐱" data-name="Kitty" onclick="selectAnimal(this)">
+            <span class="emoji">🐱</span>
+            <span class="aname">Kitty</span>
+          </div>
+          <div class="animal-opt" data-emoji="🐶" data-name="Puppy" onclick="selectAnimal(this)">
+            <span class="emoji">🐶</span>
+            <span class="aname">Puppy</span>
+          </div>
+          <div class="animal-opt" data-emoji="🦊" data-name="Fox" onclick="selectAnimal(this)">
+            <span class="emoji">🦊</span>
+            <span class="aname">Fox</span>
+          </div>
+        </div>
+        <div style="margin-top:14px;padding:14px;background:var(--lavender-light);border-radius:14px;font-size:13px;color:var(--text-muted);line-height:1.6">
+          <strong style="color:var(--lavender-deep)">🐼 Panda</strong> — Calm &amp; gentle &nbsp;·&nbsp;
+          <strong style="color:var(--lavender-deep)">🐰 Bunny</strong> — Cheerful &amp; bubbly &nbsp;·&nbsp;
+          <strong style="color:var(--lavender-deep)">🐱 Kitty</strong> — Witty &amp; playful &nbsp;·&nbsp;
+          <strong style="color:var(--lavender-deep)">🐶 Puppy</strong> — Loving &amp; devoted &nbsp;·&nbsp;
+          <strong style="color:var(--lavender-deep)">🦊 Fox</strong> — Wise &amp; grounding
+        </div>
+      </div>
+
+      <button class="btn-primary" style="width:100%" onclick="completeSetup()">
+        Enter My Comfort Space 🌸
+      </button>
+
+      <p style="text-align:center;margin-top:1rem;font-size:13px;color:var(--text-light)">
+        Your data stays on your device. No sign up required. 🌙
+      </p>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/components.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

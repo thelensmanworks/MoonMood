@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cravings Kiss Shop · MoonMood 🌙</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><text y='32' font-size='32'>🌙</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="shop">
+
+  <div id="nav-placeholder"></div>
+  <div id="overlays-placeholder"></div>
+
+  <main class="page-wrapper shop-page">
+    <div class="shop-container">
+
+      <div class="shop-header">
+        <h2>Cravings Kiss Shop 💋</h2>
+        <p>Everything is priced in kisses. Request from your partner — they'll get a sweet notification! 🍫</p>
+        <div class="kiss-balance-bar">
+          <div class="kiss-balance">💋 Balance: <span id="kiss-count">100 kisses</span></div>
+          <button class="earn-btn" onclick="earnKisses()">+ Earn Kisses</button>
+        </div>
+      </div>
+
+      <div class="shop-grid">
+
+        <div class="shop-item">
+          <span class="badge">Popular</span>
+          <span class="item-emoji">🍫</span>
+          <h4>Dairy Milk</h4>
+          <div class="item-price">💋 × 10</div>
+          <button class="req-btn" onclick="requestItem('Dairy Milk', 10, '🍫')">Request from Partner</button>
+        </div>
+
+        <div class="shop-item">
+          <span class="item-emoji">🍬</span>
+          <h4>KitKat</h4>
+          <div class="item-price">💋 × 5</div>
+          <button class="req-btn" onclick="requestItem('KitKat', 5, '🍬')">Request from Partner</button>
+        </div>
+
+        <div class="shop-item">
+          <span class="badge">Luxury</span>
+          <span class="item-emoji">🫐</span>
+          <h4>Ferrero Rocher</h4>
+          <div class="item-price">💋 × 50</div>
+          <button class="req-btn" onclick="requestItem('Ferrero Rocher', 50, '🫐')">Request from Partner</button>
+        </div>
+
+        <div class="shop-item">
+          <span class="item-emoji">🍫</span>
+          <h4>Munch</h4>
+          <div class="item-price">💋 × 5</div>
+          <button class="req-btn" onclick="requestItem('Munch', 5, '🍫')">Request from Partner</button>
+        </div>
+
+        <div class="shop-item">
+          <span class="item-emoji">🍭</span>
+          <h4>Candies</h4>
+          <div class="item-price">💋 × 2</div>
+          <button class="req-btn" onclick="requestItem('Candies', 2, '🍭')">Request from Partner</button>
+        </div>
+
+        <div class="shop-item">
+          <span class="badge">Sweet</span>
+          <span class="item-emoji">🍩</span>
+          <h4>Brownies</h4>
+          <div class="item-price">💋 × 15</div>
+          <button class="req-btn" onclick="requestItem('Brownies', 15, '🍩')">Request from Partner</button>
+        </div>
+
+        <div class="shop-item">
+          <span class="item-emoji">🍫</span>
+          <h4>Dark Chocolate</h4>
+          <div class="item-price">💋 × 25</div>
+          <button class="req-btn" onclick="requestItem('Dark Chocolate', 25, '🍫')">Request from Partner</button>
+        </div>
+
+        <div class="shop-item">
+          <span class="badge">Special</span>
+          <span class="item-emoji">💐</span>
+          <h4>Bouquet</h4>
+          <div class="item-price">💋 × 30</div>
+          <button class="req-btn" onclick="requestItem('Bouquet', 30, '💐')">Request from Partner</button>
+        </div>
+
+        <div class="shop-item">
+          <span class="item-emoji">🎂</span>
+          <h4>Birthday Cake</h4>
+          <div class="item-price">💋 × 40</div>
+          <button class="req-btn" onclick="requestItem('Birthday Cake', 40, '🎂')">Request from Partner</button>
+        </div>
+
+        <div class="shop-item">
+          <span class="item-emoji">🧋</span>
+          <h4>Bubble Tea</h4>
+          <div class="item-price">💋 × 12</div>
+          <button class="req-btn" onclick="requestItem('Bubble Tea', 12, '🧋')">Request from Partner</button>
+        </div>
+
+        <div class="shop-item">
+          <span class="item-emoji">🍦</span>
+          <h4>Ice Cream</h4>
+          <div class="item-price">💋 × 8</div>
+          <button class="req-btn" onclick="requestItem('Ice Cream', 8, '🍦')">Request from Partner</button>
+        </div>
+
+        <div class="shop-item">
+          <span class="badge">Love</span>
+          <span class="item-emoji">💌</span>
+          <h4>Love Letter</h4>
+          <div class="item-price">💋 × 1</div>
+          <button class="req-btn" onclick="requestItem('Love Letter', 1, '💌')">Request from Partner</button>
+        </div>
+
+      </div>
+
+      <!-- Send Bouquet Section -->
+      <div style="margin-top:2.5rem;background:white;border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow-sm);text-align:center">
+        <p style="font-size:28px;margin-bottom:1rem">💌</p>
+        <h3 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--text);margin-bottom:0.6rem">Share a Surprise Care Link</h3>
+        <p style="color:var(--text-muted);font-size:14px;margin-bottom:1.5rem;line-height:1.7">Send your partner a surprise link — a virtual bouquet, a hug request, or a love note. No craving needed.</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <button class="btn-secondary" onclick="requestItem('Virtual Bouquet',0,'💐')">💐 Send Bouquet</button>
+          <button class="btn-secondary" onclick="requestItem('Hug Request',0,'🤗')">🤗 Hug Request</button>
+          <button class="btn-secondary" onclick="requestItem('Love Note',0,'💌')">💌 Love Note</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/components.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
